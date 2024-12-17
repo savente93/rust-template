@@ -4,10 +4,9 @@ version = "0.1.0"
 authors = ["{{authors}}"]
 edition = "2024"
 rust-version = "1.76"
-description = ""
+description = "{{description}}"
 readme = "README.md"
-repository = "https://github.com/9999years/rust-cli-template"
-license = "MIT"                                               # https://spdx.org/licenses/
+license = "MIT"
 
 [[bench]]
 name = "main"
@@ -18,7 +17,7 @@ path = "src/lib.rs"
 
 [[bin]]
 path = "src/main.rs"
-name = "{{project-name}}"
+name = "{{crate_name}}"
 
 [dependencies]
 anyhow = "1.0.68"
@@ -27,6 +26,19 @@ tracing = { version = "0", features = ["attributes"] }
 tracing-subscriber = "0"
 tracing-error = "0"
 serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+toml = "0.7.6"
+serde_json = "1.0.108"
+chrono = { version = "0.4.31", features = ["serde"] }
+strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
+env_logger = "0.11.5"
+toml_edit = "0.22.22"
+opentelemetry = "0.27.1"
+ciborium = "0.2.2"
 
 [dev-dependencies]
 criterion = "0"
+tempfile = "3.14.0"
+assert_cmd = "2.0"
+similar-asserts = { version = "1.6.0", features = ["serde"] }
+predicates = "3.1.2"
