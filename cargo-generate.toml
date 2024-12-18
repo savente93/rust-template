@@ -2,15 +2,20 @@
 cargo_generate_version = ">=0.9.0"
 
 [placeholders]
-description = { type = "string", prompt = "Description for the crate?" }
-ask_for_string = { type = "bool", prompt = "Make a choice too?", default = true }
+include_logging = { type = "bool", prompt = "Do you want logging?", default = true }
+include_cli = { type = "bool", prompt = "Do you want a cli?", default = true }
+include_serde = { type = "bool", prompt = "Do you want serde?", default = true }
 
-[conditional.'ask_for_string'.placeholders.choice]
+[conditional.'include_logging'.placeholders.logger_kind]
 type = "string"
-prompt = "Please select one..."
-choices = ["One", "Two", "Three", "Four"]
+prompt = "Simple or tracing logger?"
+choices = ["simple", "tracing"]
+
+[conditional.'include_serde'.placeholders.serde_format]
+type = "string"
+prompt = "Which serde format would you like?"
+choices = ["JSON", "YAML", "TOML", "CBOR"]
 
 
 [hooks]
-pre = ["fix-readme.rhai", "ask-license.rhai"]
-post = ["post-script.rhai"]
+# pre = ["ask-license.rhai"]
