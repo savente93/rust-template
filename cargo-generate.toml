@@ -5,16 +5,23 @@ cargo_generate_version = ">=0.9.0"
 include_logging = { type = "bool", prompt = "Do you want logging?", default = true }
 include_cli = { type = "bool", prompt = "Do you want a cli?", default = true }
 include_serde = { type = "bool", prompt = "Do you want serde?", default = true }
+include_bin = { type = "bool", prompt = "Is it a binary?", default = true }
 
 [conditional.'include_logging'.placeholders.logger_kind]
 type = "string"
 prompt = "Simple or tracing logger?"
 choices = ["simple", "tracing"]
 
-[conditional.'include_serde'.placeholders.serde_format]
+[conditional.'include_bin'.placeholders.bin_name]
 type = "string"
+prompt = "What should the binary be called?"
+default = "{{crate-name}}"
+
+[conditional.'include_serde'.placeholders.serde_format]
+type = "array"
 prompt = "Which serde format would you like?"
 choices = ["JSON", "YAML", "TOML", "CBOR"]
+default = ["JSON"]
 
 
 [hooks]

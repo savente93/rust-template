@@ -15,15 +15,17 @@ harness = false
 [lib]
 path = "src/lib.rs"
 
+{% if include_bin %}
 [[bin]]
 path = "src/main.rs"
 name = "{{crate-name}}"
+{% endif %}
 
 [dependencies]
 anyhow = "1.0.68"
 strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 
-{% if true %}
+{% if cli %}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
 {% endif %}
 
@@ -39,25 +41,29 @@ tracing-error = "0"
 env_logger = "0.11.5"
 {% endif %}
 
-{% if include_cli %}
+{% if include_serde %}
 serde = { version = "1", features = ["derive"] }
 {% endif %}
 
 include serde: {{ include_serde }}
 include logger: {{ logger_kind }}
-{% if serde_format == "YAML" %}
+{% if  serde_format contains "YAML" %}
 serde_yaml = "0.9"
-{% elsif serde_format == "JSON" %}
+{% elsif serde_format contains "JSON" %}
 serde_json = "1.0.108"
-{% elsif serde_format == "TOML" %}
+{% elsif serde_format contains "TOML" %}
 toml_edit = "0.22.22"
-{% elsif serde_format == "CBOR" %}
+{% elsif serde_format contains  "CBOR" %}
 ciborium = "0.2.2"
 {% endif %}
 
 [dev-dependencies]
 tempfile = "3.14.0"
 assert_cmd = "2.0"
+{% if include_serde %}
 similar-asserts = { version = "1.6.0", features = ["serde"] }
+{% else %}
+similar-asserts = { version = "1.6.0"}
+{% endif %}
 assert_fs = "1.1.2"
 

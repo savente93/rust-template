@@ -34,6 +34,7 @@ footer = """
 
 trim = true
 postprocessors = [
+  # TODO set repo 
   { pattern = '<REPO>', replace = "https://github.com/savente93/ci-playground" }, # replace repository URL
 ]
 
