@@ -46,6 +46,9 @@ update:
 newest:
     cargo +nightly update --breaking -Z unstable-options
 
+semver:
+    cargo semver-checks
+
 # Publish the crate to crates.io
 # Add confirmation to prevent accidental publishing
 publish:
