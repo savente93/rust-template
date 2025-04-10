@@ -66,6 +66,12 @@ similar-asserts = { version = "1.6.0"}
 {% endif %}
 assert_fs = "1.1.2"
 
+
+{% if include_async %}
+tokio = { version = "1.44", features = ["rt", "rt-multi-thread", "io-util", "io-std", "time", "process", "macros", "fs", "parking_lot", "sync"] }
+tokio-stream = "0.1.17"
+{% endif %}
+
 # please tell me what to do Clippy-senpai 
 [lints.clippy]
 perf="warn"
@@ -85,3 +91,4 @@ match_bool = "warn"
 needless_bool = "deny"
 unwrap_used = "warn"
 expect_used = "warn"
+allow-unwrap-in-tests = true
