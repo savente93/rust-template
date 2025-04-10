@@ -65,6 +65,8 @@ similar-asserts = { version = "1.6.0", features = ["serde"] }
 similar-asserts = { version = "1.6.0"}
 {% endif %}
 assert_fs = "1.1.2"
+pretty_assertions = "0"
+criterion = "0"
 
 
 {% if include_async %}
