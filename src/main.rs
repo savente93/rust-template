@@ -1,8 +1,12 @@
-
-use anyhow::Result;
-
 use {{crate_name}}::*;
 
-pub fn main() -> Result<()> {
+use color_eyre::eyre::Result;
+
+fn main() -> Result<()> {
+    color_eyre::install()?;
+
+    // ...
     Ok(())
 }
+
+
