@@ -22,15 +22,11 @@ name = "{{crate-name}}"
 {% endif %}
 
 [dependencies]
-anyhow = "1.0.68"
+color-eyre = "0.6"
 strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 
 {% if cli %}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
-{% endif %}
-
-{% if crate_type == "bin" %}
-structopt = "0.3.21"
 {% endif %}
 
 {% if logger_kind == 'tracing' %}
@@ -45,8 +41,6 @@ env_logger = "0.11.5"
 serde = { version = "1", features = ["derive"] }
 {% endif %}
 
-include serde: {{ include_serde }}
-include logger: {{ logger_kind }}
 {% if  serde_format contains "YAML" %}
 serde_yaml = "0.9"
 {% elsif serde_format contains "JSON" %}
