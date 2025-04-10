@@ -8,6 +8,11 @@ description = "{{description}}"
 readme = "README.md"
 license = "MIT"
 
+
+documentation = "{{docs-url}}"
+homepage = "{{home-url}}"
+repository = "{{repo-url}}"
+
 [[bench]]
 name = "main"
 harness = false
