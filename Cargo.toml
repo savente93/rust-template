@@ -67,3 +67,22 @@ similar-asserts = { version = "1.6.0"}
 {% endif %}
 assert_fs = "1.1.2"
 
+# please tell me what to do Clippy-senpai 
+[lints.clippy]
+perf="warn"
+pedantic="warn"
+single_match = "warn"
+single_match_else = "warn"
+needless_match = "warn"
+needless_late_init = "warn"
+redundant_pattern_matching = "warn"
+redundant_pattern = "warn"
+redundant_guards = "warn"
+collapsible_match = "warn"
+match_single_binding = "warn"
+match_same_arms = "warn"
+match_ref_pats = "warn"
+match_bool = "warn"
+needless_bool = "deny"
+unwrap_used = "warn"
+expect_used = "warn"
