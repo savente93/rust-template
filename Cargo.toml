@@ -23,47 +23,39 @@ path = "src/lib.rs"
 {% if include_bin %}
 [[bin]]
 path = "src/main.rs"
-name = "{{crate-name}}"
+name = "{{crate_name}}"
 {% endif %}
 
 [dependencies]
 color-eyre = "0.6"
 strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 
-{% if cli %}
+{% if include_bin %}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
 {% endif %}
 
-{% if logger_kind == 'tracing' %}
 tracing = { version = "0", features = ["attributes"] }
 tracing-subscriber = "0"
 tracing-error = "0"
-{% elsif logger_kind == "simple" %}
-env_logger = "0.11.5"
-{% endif %}
-
-{% if include_serde %}
 serde = { version = "1", features = ["derive"] }
-{% endif %}
 
 {% if  serde_format contains "YAML" %}
 serde_yaml = "0.9"
-{% elsif serde_format contains "JSON" %}
+{% endif %}
+{% if serde_format contains "JSON" %}
 serde_json = "1.0.108"
-{% elsif serde_format contains "TOML" %}
+{% endif %}
+{% if serde_format contains "TOML" %}
 toml_edit = "0.22.22"
-{% elsif serde_format contains  "CBOR" %}
+{% endif %}
+{% if serde_format contains  "CBOR" %}
 ciborium = "0.2.2"
 {% endif %}
 
 [dev-dependencies]
 tempfile = "3.14.0"
 assert_cmd = "2.0"
-{% if include_serde %}
 similar-asserts = { version = "1.6.0", features = ["serde"] }
-{% else %}
-similar-asserts = { version = "1.6.0"}
-{% endif %}
 assert_fs = "1.1.2"
 pretty_assertions = "0"
 criterion = "0"
