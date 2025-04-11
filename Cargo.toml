@@ -3,14 +3,14 @@ name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
 edition = "2024"
-rust-version = "1.76"
+rust-version = "1.85"
 description = "{{description}}"
 readme = "README.md"
 license = "MIT"
 
 
-documentation = "{{docs_url}}"
-repository = "{{repo_url}}"
+documentation = "https://docs.rs/{{crate_name}}"
+repository = "https://github.com/{{username}}/{{project-name}}"
 
 [[bench]]
 name = "main"
@@ -29,9 +29,9 @@ name = "{{crate_name}}"
 color-eyre = "0.6"
 strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 
-{% if include_bin %}
+{%- if include_bin -%}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
-{% endif %}
+{%- endif -%}
 
 tracing = { version = "0", features = ["attributes"] }
 tracing-subscriber = "0"
@@ -51,6 +51,11 @@ toml_edit = "0.22.22"
 ciborium = "0.2.2"
 {% endif %}
 
+{% if include_async %}
+tokio = { version = "1.44", features = ["rt", "rt-multi-thread", "io-util", "io-std", "time", "process", "macros", "fs", "parking_lot", "sync"] }
+tokio-stream = "0.1.17"
+{% endif %}
+
 [dev-dependencies]
 tempfile = "3.14.0"
 assert_cmd = "2.0"
@@ -60,14 +65,8 @@ pretty_assertions = "0"
 criterion = "0"
 
 
-{% if include_async %}
-tokio = { version = "1.44", features = ["rt", "rt-multi-thread", "io-util", "io-std", "time", "process", "macros", "fs", "parking_lot", "sync"] }
-tokio-stream = "0.1.17"
-{% endif %}
-
 # please tell me what to do Clippy-senpai 
 [lints.clippy]
-perf="warn"
 pedantic="warn"
 single_match = "warn"
 single_match_else = "warn"
@@ -84,4 +83,4 @@ match_bool = "warn"
 needless_bool = "deny"
 unwrap_used = "warn"
 expect_used = "warn"
-allow-unwrap-in-tests = true
+allow-unwrap-in-tests = "allow"

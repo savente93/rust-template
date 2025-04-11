@@ -1,6 +1,6 @@
 use color_eyre::eyre::Result;
 
-pub fn dummy() -> Result<()> {
+pub {% if include_async %} async {% endif %} fn dummy() -> Result<()> {
     Ok(())
 }
 
@@ -8,7 +8,12 @@ pub fn dummy() -> Result<()> {
 mod tests {
     use super::*;
 
+    {% if include_async %}
+    #[tokio::test]
+    async
+    {%- else -%}
     #[test]
+    {% endif %}
     fn dummy_test() -> Result<()> {
         Ok(())
     }

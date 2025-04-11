@@ -14,9 +14,7 @@ serde_format = { type = "array", prompt = "Which serde format would you like?", 
   "TOML",
 ] }
 
-repo_url    = { type = "string", prompt = "Where will the repo be hosted?", default = "https://github.com/{{username}}/{{project-name}}" }
-docs_url    = { type = "string", prompt = "Where will the docs be hosted?", default = "https://docs.rs/{{crate_name}}" }
-description = { type = "string", prompt = "Project description:", defaults = "" }
+description = { type = "string", prompt = "Project description", defaults = "" }
 
 
 [conditional.'include_bin'.placeholders.bin_name]
