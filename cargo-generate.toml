@@ -26,4 +26,4 @@ default = "{{crate_name}}"
 
 
 [hooks]
-post = ["post-fmt.rhai", "post-update-deps.rhai"]
+post = ["post-fmt.rhai", "post-update-deps.rhai", "init-git-repol.rhai"]
