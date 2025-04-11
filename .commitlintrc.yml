@@ -13,6 +13,10 @@ rules:
       - ci
       - misc
       - code
+      - test
+      {% if include_bin %}
+      - cli
+      {% endif %}
   type:
     level: error
     optional: false
@@ -20,9 +24,3 @@ rules:
       - feat
       - fix
       - chore
-      - revert 
-      - style
-      - refactor
-      - ci
-      - dep
-      - doc
