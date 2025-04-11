@@ -14,9 +14,9 @@ rules:
       - misc
       - code
       - test
-      {% if include_bin %}
+      {%- if include_bin %}
       - cli
-      {% endif %}
+      {%- endif %}
   type:
     level: error
     optional: false
