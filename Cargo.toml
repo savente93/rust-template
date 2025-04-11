@@ -10,7 +10,7 @@ license = "MIT"
 
 
 documentation = "https://docs.rs/{{crate_name}}"
-repository = "https://github.com/{{username}}/{{project-name}}"
+repository = "https://github.com/{{handle}}/{{project-name}}"
 
 [[bench]]
 name = "main"
