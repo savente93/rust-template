@@ -41,10 +41,8 @@ clean:
 check:
     cargo check
 
-update:
-    cargo update
-
 newest:
+    cargo upgrade --incompatible --recursive
     cargo +nightly update --breaking -Z unstable-options
 
 semver:
@@ -53,21 +51,11 @@ semver:
 install-dev-tools:
     cargo install cargo-binstall 
     cargo binstall cargo-semver -y
+    cargo binstall cargo-edit -y
     cargo binstall git-cliff -y
     cargo binstall typos-cli -y
     cargo binstall taplo-cli -y
     cargo binstall bacon -y
-
-# Publish the crate to crates.io
-# Add confirmation to prevent accidental publishing
-publish:
-    echo "Are you sure you want to publish? (y/n)"
-    read -r confirm
-    if [[ $confirm == "y" || $confirm == "Y" ]]; then
-        cargo publish
-    else
-        echo "Publish cancelled"
-    fi
 
 # Run all quality checks: fmt, lint, check, test
 ci:
