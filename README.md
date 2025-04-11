@@ -8,6 +8,9 @@
 
 {{ description }}
 
+
+(Currently mostly for shits and giggles, but who knows.)
+
 ## Dev tools
 To develop {{project-name}} you'll want to have these tools installed:
 
