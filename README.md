@@ -9,13 +9,18 @@
 {{ description }}
 
 ## Dev tools
-
 To develop {{project-name}} you'll want to have these tools installed:
 
-- [`just`](https://github.com/casey/just)   [https://github.com/casey/just]  This command runner will let you run our workflows reliably (including installing the other dev dependencies)
-- [`typos`](https://github.com/crate-ci/typos)
-- [`cargo-semver`](https://github.com/obi1kenobi/cargo-semver-checks)
-- [`git-cliff`](https://github.com/orhun/git-cliff)
+- [`just`](https://github.com/casey/just) A command runner to run (and document) workflows we run, including installing dev and publish dependencies
+- [`typos-cli`](https://github.com/crate-ci/typos) Fixing typos... not that we make any... but you know, just in case. 
+- [`taplo-cli`](https://github.com/tamasfe/taplo) Keeping our `.toml` files nice and clean
+- [`bacon`](https://github.com/Canop/bacon) A runner that will watch your files and run checks, tests, linting etc. when they change. Very useful while developing
+
+##  Publishing Tools
+If you have to publish, or otherwise fiddle with dependencies of {{project-name}} you'll want these installed as well:
+- [`cargo-semver`](https://github.com/obi1kenobi/cargo-semver-checks) A cargo plugin to check that we haven't accidentally broken our API when we didn't mean to. 
+- [`cargo-edit`](https://github.com/killercup/cargo-edit) A cargo plugin for managing dependencies, incl updating them.
+- [`git-cliff`](https://github.com/orhun/git-cliff) A neat tool to generate our changelog
 
 ## Template
 
