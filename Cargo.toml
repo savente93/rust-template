@@ -29,9 +29,9 @@ name = "{{crate_name}}"
 color-eyre = "0.6"
 strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 
-{%- if include_bin -%}
+{% if include_bin %}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
-{%- endif -%}
+{% endif %}
 
 tracing = { version = "0", features = ["attributes"] }
 tracing-subscriber = "0"
