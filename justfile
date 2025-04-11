@@ -49,6 +49,13 @@ newest:
 semver:
     cargo semver-checks
 
+install-dev-tools:
+    cargo install cargo-binstall 
+    cargo binstall cargo-semver -y
+    cargo binstall git-cliff -y
+    cargo binstall typos-cli -y
+    cargo binstall bacon -y
+
 # Publish the crate to crates.io
 # Add confirmation to prevent accidental publishing
 publish:
@@ -65,12 +72,4 @@ ci:
     just lint
     just check
     just test
-
-# Watch files and re-run tests on change (requires cargo-watch)
-watch-tests:
-    cargo watch -x test
-
-# Watch files and run the main binary on change
-watch-run:
-    cargo watch -x run
 
