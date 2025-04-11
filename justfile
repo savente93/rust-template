@@ -15,6 +15,7 @@ lint:
     cargo clippy --all --all-targets --all-features -- --deny warnings
     cargo fmt --all -- --check
     typos -w .
+    taplo fmt . 
     
 
 # Run tests
@@ -54,6 +55,7 @@ install-dev-tools:
     cargo binstall cargo-semver -y
     cargo binstall git-cliff -y
     cargo binstall typos-cli -y
+    cargo binstall taplo-cli -y
     cargo binstall bacon -y
 
 # Publish the crate to crates.io

@@ -1,16 +1,16 @@
 [template]
 cargo_generate_version = ">=0.9.0"
-exclude                = [".github/workflows/test.yml", ".github/workflows/check.yml"]
+exclude                = [".github/workflows/check.yml", ".github/workflows/test.yml"]
 
 [placeholders]
 handle = { type = "string", prompt = "owners handle (no @)", default = "savente93" }
 include_async = { type = "bool", prompt = "Do you want it to be async?", default = false }
 include_bin = { type = "bool", prompt = "Include a binary?", default = true }
 serde_format = { type = "array", prompt = "Which serde format would you like?", choices = [
-  "TOML",
-  "JSON",
-  "YAML",
   "CBOR",
+  "JSON",
+  "TOML",
+  "YAML",
 ], default = [
   "TOML",
 ] }
@@ -25,3 +25,4 @@ default = "{{crate_name}}"
 
 
 [hooks]
+post = ["post-fmt.rhai", "post-update-deps.rhai"]
