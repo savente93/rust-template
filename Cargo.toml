@@ -9,9 +9,8 @@ readme = "README.md"
 license = "MIT"
 
 
-documentation = "{{docs-url}}"
-homepage = "{{home-url}}"
-repository = "{{repo-url}}"
+documentation = "{{docs_url}}"
+repository = "{{repo_url}}"
 
 [[bench]]
 name = "main"
