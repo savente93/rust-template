@@ -12,12 +12,15 @@ license = "MIT"
 documentation = "https://docs.rs/{{crate_name}}"
 repository = "https://github.com/{{handle}}/{{project-name}}"
 
+{% if include_bench %}
 [[bench]]
 name = "main"
 harness = false
+{% endif %}
 
 [lib]
 path = "src/lib.rs"
+
 {% if include_bin %}
 [[bin]]
 path = "src/main.rs"
@@ -55,11 +58,11 @@ ciborium = "0.2.2"
 
 [dev-dependencies]
 tempfile = "3.14.0"
-assert_cmd = "2.0"
-similar-asserts = { version = "1.6.0", features = ["serde"] }
-assert_fs = "1.1.2"
 pretty_assertions = "0"
+
+{% if include_bench %}
 criterion = "0"
+{% endif %}
 
 
 # please tell me what to do Clippy-senpai 
