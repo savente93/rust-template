@@ -4,7 +4,7 @@ use {{crate_name}}::*;
 
 use color_eyre::eyre::Result;
 
-{% if include_cli %}
+{% if include_bin %}
 mod cli;
 use crate::cli::Args;
 use clap::Parser;
@@ -18,7 +18,7 @@ use tracing_core::Level;
 async {% endif %} fn main() -> Result<()> {
     color_eyre::install()?;
 
-    {% if include_cli %}
+    {% if include_bin  %}
     let args = Args::parse();
     let subscriber = tracing_subscriber::fmt().with_max_level(args.verbose.tracing_level_filer()).finish();
     {%else%}
