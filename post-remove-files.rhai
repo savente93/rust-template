@@ -1,6 +1,3 @@
-
-let foo = system::command("just", ["newest"]);
-
 let include_bin = variable::get("include_bin");
 if !include_bin {
 	file::delete("src/cli.rs");
