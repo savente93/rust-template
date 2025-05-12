@@ -33,14 +33,17 @@ strum = { version = "0.26.2", features = ["derive", "strum_macros"] }
 tracing = { version = "0", features = ["attributes"] }
 tracing-subscriber = "0"
 tracing-error = "0"
+
 {%- if include_bin %}
 clap = { version = "4", features = ["derive", "unicode", "cargo"] }
 clap-verbosity-flag = { version = "3.0.2", features = ["tracing"] }
-{% endif -%}
+{% endif %}
+
 {%- if include_async %}
 tokio = { version = "1.44", features = ["rt", "rt-multi-thread", "io-util", "io-std", "time", "process", "macros", "fs", "parking_lot", "sync"] }
 tokio-stream = "0.1.17"
-{% endif -%}
+{% endif %}
+
 serde = { version = "1", features = ["derive"] }
 {%- if  serde_format contains "YAML" %}
 serde_yaml = "0.9"
