@@ -27,4 +27,9 @@ default = "{{crate_name}}"
 
 
 [hooks]
-post = ["post-fmt.rhai", "post-update-deps.rhai", "post-remove-files.rhai"]
+post = [
+  "post-fmt.rhai",
+  "post-update-deps.rhai",
+  "post-remove-files.rhai",
+  "post-init-pre-commit.rhai",
+]
