@@ -24,6 +24,6 @@ repos:
     hooks:
       - id: typos
   - repo: https://github.com/savente93/commitlint-rs
-    rev: efaf9035ae78ef0fefe82ea3ffd3b40c1b508cd1
+    rev: d0f10c617d701e29e5fbf153222a4e4120b994fa
     hooks:
       - id: commitlint
