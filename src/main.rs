@@ -28,9 +28,7 @@ async {% endif %} fn main() -> Result<()> {
     tracing::warn!("warning");
     tracing::error!("error");
 
-    
+
     // ...
     Ok(())
 }
-
-

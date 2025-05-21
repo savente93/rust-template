@@ -15,8 +15,8 @@ lint:
     cargo clippy --all --all-targets --all-features -- --deny warnings
     cargo fmt --all -- --check
     typos -w .
-    taplo fmt . 
-    
+    taplo fmt .
+
 
 # Run tests
 test:
@@ -28,7 +28,7 @@ build:
 
 # Build the project
 build-release:
-    cargo build --release 
+    cargo build --release
 
 doc:
     cargo doc --no-deps --all-features --workspace
@@ -49,7 +49,7 @@ semver:
     cargo semver-checks
 
 install-dev-tools:
-    cargo install cargo-binstall 
+    cargo install cargo-binstall
     cargo binstall cargo-semver -y
     cargo binstall cargo-edit -y
     cargo binstall git-cliff -y
@@ -62,4 +62,3 @@ ci:
     just lint
     just check
     just test
-

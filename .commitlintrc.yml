@@ -1,7 +1,7 @@
 rules:
-  description-empty: 
+  description-empty:
     level: error
-  subject-empty: 
+  subject-empty:
     level: error
   body-empty:
     level: error

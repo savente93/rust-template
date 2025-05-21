@@ -68,7 +68,7 @@ criterion = "0"
 {% endif %}
 
 
-# please tell me what to do Clippy-senpai 
+# please tell me what to do Clippy-senpai
 [lints.clippy]
 pedantic="warn"
 single_match = "warn"

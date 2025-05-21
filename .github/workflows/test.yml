@@ -1,7 +1,7 @@
 # Thank you @jonhoo (https://github.com/jonhoo/rust-ci-conf/blob/main/.github/workflows/test.yml)
 # This is the main CI workflow that runs the test suite on all pushes to main and all pull requests.
 # It runs the following jobs:
-# - required: runs the test suite on ubuntu with stable 
+# - required: runs the test suite on ubuntu with stable
 # - coverage: runs the test suite and collects coverage information
 # See check.yml for information about how the concurrency cancellation and workflow triggering works
 permissions:
@@ -17,12 +17,12 @@ name: test
 jobs:
   required:
     runs-on: ubuntu-latest
-    name: ubuntu 
+    name: ubuntu
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Install rust stable 
+      - name: Install rust stable
         uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
