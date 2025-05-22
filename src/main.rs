@@ -10,6 +10,7 @@ use tracing_core::Level;
 {% endif %}
 
 
+#[allow(clippy::missing_errors_doc)]
 {% if include_async %}
 #[tokio::main]
 async {% endif %} fn main() -> Result<()> {
@@ -17,7 +18,7 @@ async {% endif %} fn main() -> Result<()> {
 
     {% if include_bin  %}
     let args = Args::parse();
-    let subscriber = tracing_subscriber::fmt().with_max_level(args.verbose.tracing_level_filer()).finish();
+    let _subscriber = tracing_subscriber::fmt().with_max_level(args.verbose.tracing_level_filter()).finish();
     {%else%}
         let subscriber = tracing_subscriber::fmt().with_max_level(Level::WARN).finish();
     {% endif %}

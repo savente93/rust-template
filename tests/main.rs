@@ -7,6 +7,7 @@ use {{crate_name}}::*;
 use color_eyre::eyre::Result;
 
 
+#[allow(clippy::missing_errors_doc)]
 pub fn setup() -> Result<()> {
     Ok(())
 }

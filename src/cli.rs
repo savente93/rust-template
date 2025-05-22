@@ -1,6 +1,8 @@
 use clap::Parser;
 use clap_verbosity_flag::{LogLevel, Verbosity, VerbosityFilter};
 
+// don't have to construct it ourselves, tracing will just find it for us
+#[allow(dead_code)]
 pub struct CustomLogLevel {}
 
 impl LogLevel for CustomLogLevel {
