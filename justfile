@@ -33,6 +33,9 @@ build-release:
 doc:
     cargo doc --no-deps --all-features --workspace
 
+open-doc:
+    cargo doc --no-deps --all-features --workspace --open
+
 # Clean the target directory
 clean:
     cargo clean
