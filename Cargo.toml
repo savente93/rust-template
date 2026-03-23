@@ -67,6 +67,19 @@ pretty_assertions = "0"
 criterion = "0"
 {% endif %}
 
+[profile.release]
+debug         = 0
+lto           = "fat"
+codegen-units = 1
+strip         = "symbols"
+
+[profile.dev]
+debug = 0
+
+[profile.bench]
+inherits = "release"
+debug    = 2         # necessary for many profilers
+strip    = "none"    #only affects binary size, not runtime, but makes profiling easier
 
 # please tell me what to do Clippy-senpai
 [lints.clippy]
